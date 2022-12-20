@@ -4,6 +4,7 @@ import {
   CommentsDiv,
   CountdownDiv,
   CountdownText,
+  GrayText,
   StyledButton,
   StyledInput,
   StyledInputDiv,
@@ -70,15 +71,15 @@ export const Frontpage = () => {
         />
         <StyledButton onClick={() => handleClick()}>Comment</StyledButton>
       </StyledInputDiv>
+      <CountdownDiv gwettings>
+        <h2>Cwismas Gwettings</h2>
+      </CountdownDiv>
       <CommentContainer>
-        <CountdownDiv>
-          <h2>Cwismas Gwettings</h2>
-        </CountdownDiv>
-        {comments.map((item, index) => {
+        {comments.reverse().map((item, index) => {
           return (
             <CommentsDiv key={index}>
               <p>{item.text}</p>
-              <p>{item.date}</p>
+              <GrayText>{item.date}</GrayText>
             </CommentsDiv>
           );
         })}

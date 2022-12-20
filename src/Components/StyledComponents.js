@@ -6,6 +6,14 @@ export const CountdownDiv = styled.div`
   width: 50%;
   border-radius: 5px;
   transform: skew(15deg);
+  ${(props) => {
+    if (props.gwettings) {
+      return `
+        width: 15%;
+        padding: 1em;
+        transform: skew(0deg);`;
+    }
+  }}
 `;
 
 export const CountdownText = styled.div`
@@ -26,6 +34,7 @@ export const CommentsDiv = styled.div`
   border-radius: 5px;
   font-weight: bold;
   color: white;
+  font-size: 1.25rem;
 `;
 
 export const StyledSection = styled.section`
@@ -41,6 +50,7 @@ export const CommentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1em;
+  width: 50%;
 `;
 
 export const StyledInput = styled.input`
@@ -66,4 +76,8 @@ export const StyledInputDiv = styled.div`
   gap: 1em;
   width: 30%;
   justify-content: center;
+`;
+
+export const GrayText = styled.p`
+  color: gray;
 `;
