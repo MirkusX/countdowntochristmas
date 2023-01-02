@@ -13,12 +13,14 @@ import {
 } from "../Components/StyledComponents";
 
 export const Frontpage = () => {
+  //gets current year
+  let currentYear = new Date().getFullYear();
   //pulls comments from localstorage
   const storedComments = JSON.parse(localStorage.getItem("c0mm3nt$")) || [];
   //state for date
   const [date, setDate] = useState("");
   //date to countdown to
-  const cwismas = new Date("24 Dec, 2023 00:00:00").getTime();
+  const cwismas = new Date(`2 dec, ${currentYear} 00:00:00`).getTime();
   //state for comments array
   const [comments, setComments] = useState(storedComments);
   //state for message
@@ -49,8 +51,11 @@ export const Frontpage = () => {
     const seconds = Math.floor((between % (1000 * 60)) / 1000);
     //sets date state to time remaining between todays date and countdown date every second
     setDate(
-      `Days: ${days} Hours: ${hours} Minutes: ${minutes} Seconds: ${seconds}`
+      `Days: ${days} | Hours: ${hours} | Minutes: ${minutes} | Seconds: ${seconds}`
     );
+    if (between <= 0) {
+      setDate("Merry Christmas!");
+    }
   }, 1000);
   //sets comments array in local storage
   useEffect(() => {
@@ -58,7 +63,7 @@ export const Frontpage = () => {
   }, [comments]);
   return (
     <StyledSection>
-      <Title>Yo, mewwy cwismas</Title>
+      <Title>Countdown to Christmas</Title>
       <CountdownDiv>
         <CountdownText>{date}</CountdownText>
       </CountdownDiv>
@@ -68,11 +73,12 @@ export const Frontpage = () => {
           id="inputComments"
           onInput={(e) => submit(e)}
           value={message}
+          placeholder="Write your greeting here!"
         />
-        <StyledButton onClick={() => handleClick()}>Comment</StyledButton>
+        <StyledButton onClick={() => handleClick()}>Post</StyledButton>
       </StyledInputDiv>
       <CountdownDiv gwettings>
-        <h2>Cwismas Gwettings</h2>
+        <h2>Christmas Greetings!</h2>
       </CountdownDiv>
       <CommentContainer>
         {comments.reverse().map((item, index) => {

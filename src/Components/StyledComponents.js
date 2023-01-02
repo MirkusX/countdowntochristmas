@@ -3,17 +3,18 @@ import styled from "styled-components";
 export const CountdownDiv = styled.div`
   background: red;
   color: white;
-  width: 50%;
+  width: 70%;
   border-radius: 5px;
   transform: skew(15deg);
+  padding: 1em;
   ${(props) => {
     if (props.gwettings) {
       return `
         width: 15%;
-        padding: 1em;
-        transform: skew(0deg);`;
+        transform: skew(0deg);
+        padding: 0;`;
     }
-  }}
+  }};
 `;
 
 export const CountdownText = styled.div`
@@ -58,7 +59,7 @@ export const StyledInput = styled.input`
   border: none;
   padding: 1em;
   width: 80%;
-  font-family: "Mountains of Christmas", cursive;
+  font-family: "Sevillana", cursive;
   font-size: 1.5rem;
 `;
 
@@ -67,7 +68,7 @@ export const StyledButton = styled.button`
   border: none;
   padding: 1em;
   border-radius: 5px;
-  font-family: "Mountains of Christmas", cursive;
+  font-family: "Sevillana", cursive;
   font-size: 1.5rem;
 `;
 
