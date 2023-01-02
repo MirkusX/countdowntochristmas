@@ -36,6 +36,7 @@ export const CommentsDiv = styled.div`
   font-weight: bold;
   color: white;
   font-size: 1.25rem;
+  border: green solid 5px;
 `;
 
 export const StyledSection = styled.section`
