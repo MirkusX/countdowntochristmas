@@ -21,11 +21,11 @@ export const Frontpage = () => {
   const [date, setDate] = useState("");
   //current date
   const today = new Date();
-  //current date converted for use in countdown function
+  //current date converted to milliseconds for use in countdown function
   const todayCd = today.getTime();
   //gets christmas date
   const cwismas = new Date(`25 dec, ${currentYear} 00:00:00`);
-  //date to countdown to
+  //christmas date converted to milliseconds for use in countdown function
   const cwismasCd = cwismas.getTime();
   //gets todays date in string
   const todayString = today.toDateString();
@@ -46,7 +46,6 @@ export const Frontpage = () => {
   };
   //countdown
   const cunter = setInterval(() => {
-    //gets todays date
     //figures out distance between todays date and countdown date
     const between = cwismasCd - todayCd;
     //translates to readable format
