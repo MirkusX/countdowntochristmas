@@ -20,7 +20,7 @@ export const Frontpage = () => {
   //state for date
   const [date, setDate] = useState("");
   //date to countdown to
-  const cwismas = new Date(`2 dec, ${currentYear} 00:00:00`).getTime();
+  const cwismas = new Date(`24 dec, ${currentYear} 00:00:00`).getTime();
   //state for comments array
   const [comments, setComments] = useState(storedComments);
   //state for message
@@ -53,8 +53,9 @@ export const Frontpage = () => {
     setDate(
       `Days: ${days} | Hours: ${hours} | Minutes: ${minutes} | Seconds: ${seconds}`
     );
-    if (between <= 0) {
-      setDate("Merry Christmas!");
+    //if the countdown reaches zero displays message
+    if (between < 0) {
+      setDate("Merry Christmas! Come back next year.");
     }
   }, 1000);
   //sets comments array in local storage

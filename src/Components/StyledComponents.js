@@ -55,6 +55,7 @@ export const CommentContainer = styled.div`
 `;
 
 export const StyledInput = styled.input`
+  border-radius: 5px 0 0 5px;
   background-color: green;
   border: none;
   padding: 1em;
@@ -67,7 +68,7 @@ export const StyledButton = styled.button`
   background-color: green;
   border: none;
   padding: 1em;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
   font-family: "Sevillana", cursive;
   font-size: 1.5rem;
 `;
