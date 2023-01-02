@@ -72,6 +72,7 @@ export const StyledButton = styled.button`
   border-radius: 0 5px 5px 0;
   font-family: "Sevillana", cursive;
   font-size: 1.5rem;
+  cursor: pointer;
 `;
 
 export const StyledInputDiv = styled.div`

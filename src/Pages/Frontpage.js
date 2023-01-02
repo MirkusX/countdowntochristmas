@@ -20,7 +20,8 @@ export const Frontpage = () => {
   //state for date
   const [date, setDate] = useState("");
   //date to countdown to
-  const cwismas = new Date(`24 dec, ${currentYear} 00:00:00`).getTime();
+  const cwismas = new Date(`25 dec, ${currentYear} 00:00:00`);
+  const cwismasCd = cwismas.getTime();
   //state for comments array
   const [comments, setComments] = useState(storedComments);
   //state for message
@@ -29,19 +30,21 @@ export const Frontpage = () => {
   const submit = (e) => {
     setMessage(e.target.value);
   };
+  //current date
+  const today = new Date();
+  //current date converted for use in countdown function
+  const todayCd = today.getTime();
   //inserts message state and current date in object
   const handleClick = () => {
-    const d = new Date();
-    const dateTrans = d.toDateString();
+    const dateTrans = today.toDateString();
     setComments([...comments, { text: message, date: dateTrans }]);
     setMessage("");
   };
   //countdown
   const cunter = setInterval(() => {
     //gets todays date
-    const today = new Date().getTime();
     //figures out distance between todays date and countdown date
-    const between = cwismas - today;
+    const between = cwismasCd - todayCd;
     //translates to readable format
     const days = Math.floor(between / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
@@ -67,6 +70,9 @@ export const Frontpage = () => {
       <Title>Countdown to Christmas</Title>
       <CountdownDiv>
         <CountdownText>{date}</CountdownText>
+        <p>
+          {today.toDateString()} - {cwismas.toDateString()}
+        </p>
       </CountdownDiv>
       <StyledInputDiv>
         <StyledInput
