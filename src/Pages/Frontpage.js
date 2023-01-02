@@ -19,9 +19,18 @@ export const Frontpage = () => {
   const storedComments = JSON.parse(localStorage.getItem("c0mm3nt$")) || [];
   //state for date
   const [date, setDate] = useState("");
-  //date to countdown to
+  //current date
+  const today = new Date();
+  //current date converted for use in countdown function
+  const todayCd = today.getTime();
+  //gets christmas date
   const cwismas = new Date(`25 dec, ${currentYear} 00:00:00`);
+  //date to countdown to
   const cwismasCd = cwismas.getTime();
+  //gets todays date in string
+  const todayString = today.toDateString();
+  //gets christmas date in string
+  const cwismasString = cwismas.toDateString();
   //state for comments array
   const [comments, setComments] = useState(storedComments);
   //state for message
@@ -30,14 +39,9 @@ export const Frontpage = () => {
   const submit = (e) => {
     setMessage(e.target.value);
   };
-  //current date
-  const today = new Date();
-  //current date converted for use in countdown function
-  const todayCd = today.getTime();
   //inserts message state and current date in object
   const handleClick = () => {
-    const dateTrans = today.toDateString();
-    setComments([...comments, { text: message, date: dateTrans }]);
+    setComments([...comments, { text: message, date: todayString }]);
     setMessage("");
   };
   //countdown
@@ -71,7 +75,7 @@ export const Frontpage = () => {
       <CountdownDiv>
         <CountdownText>{date}</CountdownText>
         <p>
-          {today.toDateString()} - {cwismas.toDateString()}
+          {todayString} - {cwismasString}
         </p>
       </CountdownDiv>
       <StyledInputDiv>
