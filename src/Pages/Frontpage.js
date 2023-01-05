@@ -61,7 +61,7 @@ export const Frontpage = () => {
     );
     //if the countdown reaches zero displays message
     if (between < 0) {
-      setDate("Merry Christmas! Come back next year.");
+      setDate("Merry Christmas!");
     }
   }, 1000);
   //sets comments array in local storage
